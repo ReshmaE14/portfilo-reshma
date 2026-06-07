@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reshma Elangovan - Personal Details</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        :root {
+            --cream: #f5f0e8;
+            --ink: #1a1714;
+            --muted: #7a7369;
+            --accent: #b5895a;
+            --accent-light: #e8d9c5;
+            --border: #ddd5c8;
+            --white: #fdfbf8;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 5vw;
+            background: rgba(245, 240, 232, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--ink);
+        }
+
+
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        section {
+            padding: 7rem 5vw;
+        }
+
+        .section-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: var(--accent);
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── ACADEMIC ── */
+        .academic {
+            background: var(--white);
+        }
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .academic-col-title {
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .academic-col-title::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+        .academic-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .academic-item:first-of-type {
+            padding-top: 0;
+        }
+
+        .academic-degree {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.2rem;
+        }
+
+        .academic-inst {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .academic-year {
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .cgpa-badge {
+            display: inline-block;
+            background: var(--accent-light);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.7rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* ── ACHIEVEMENTS ── */
+        .achievements {
+            background: var(--ink);
+        }
+
+        .achievements .section-title {
+            color: var(--cream);
+        }
+
+        .achievements .divider {
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .ach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .ach-card {
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 2rem;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .ach-card:hover {
+            background: rgba(181, 137, 90, 0.07);
+        }
+
+        .ach-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .ach-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 0.4rem;
+        }
+
+        .ach-org {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: rgba(245, 240, 232, 0.4);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Book achievement - spans full width */
+        .ach-card.featured {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            background: rgba(181, 137, 90, 0.06);
+            border-color: rgba(181, 137, 90, 0.2);
+        }
+
+        .ach-book-img {
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            border: 1px solid rgba(181, 137, 90, 0.2);
+            flex-shrink: 0;
+        }
+
+
+        .ach-book-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .ach-book-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--cream);
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .ach-book-desc {
+            font-size: 0.82rem;
+            color: rgba(245, 240, 232, 0.45);
+            line-height: 1.8;
+        }
+
+        /* ── SOFT SKILLS ── */
+        .softskills {
+            background: var(--cream);
+        }
+
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skill-pill {
+            border: 1px solid var(--border);
+            padding: 0.55rem 1.3rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            font-weight: 500;
+            transition: border-color 0.3s, color 0.3s, background 0.3s;
+            cursor: default;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent);
+            color: var(--ink);
+            background: var(--accent-light);
+        }
+
+        /* ── CERTIFICATES ── */
+        .certificates {
+            background: var(--white);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .cert-card {
+            border: 1px solid var(--border);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+            background: var(--cream);
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent-light);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26, 23, 20, 0.07);
+        }
+
+        .cert-card:hover::before {
+            height: 100%;
+        }
+
+        .cert-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .cert-card:hover .cert-icon {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+
+        .cert-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-org {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .cert-date {
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-date::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            padding: 0.65rem 0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.3s;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--border);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .btn-submit {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+            align-self: flex-start;
+            margin-top: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--ink);
+        }
+
+        .contact-info {
+            padding-left: 2rem;
+            border-left: 1px solid var(--border);
+        }
+
+        .contact-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+        .contact-tagline em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--ink);
+        }
+
+        .contact-link-icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .contact-link:hover .contact-link-icon {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 2.5rem 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: rgba(245, 240, 232, 0.35);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .footer-socials a {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, 0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .contact-info {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid var(--border);
+                padding-top: 2rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav>
+        <a class="nav-logo" href="index.html">Reshma E<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#academic">Academic</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#softskills">Soft Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECTION 1 — ACADEMIC DETAILS -->
+    <section class="academic" id="academic">
+        <div class="reveal">
+            <div class="section-tag">Education</div>
+            <h2 class="section-title">Academic <em>Background</em></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="academic-grid">
+
+            <!-- LEFT: Degree -->
+            <div class="reveal">
+                <div class="academic-col-title">Degree</div>
+                <div class="academic-item">
+                    <div class="academic-degree">Bachelor of Engineering</div>
+                    <div class="academic-inst">Computer Science &amp; Engineering<br>Dhanalakshmi College of
+                        Engineering, Chennai</div>
+                    <div class="academic-year">July 2019 — April 2023</div>
+                    <div class="cgpa-badge">CGPA — 8.77</div>
+                </div>
+            </div>
+
+            <!-- RIGHT: School -->
+            <div class="reveal" style="transition-delay:0.1s">
+                <div class="academic-col-title">Schooling</div>
+                <div class="academic-item">
+                    <div class="academic-degree">Higher Secondary (HSC)</div>
+                    <div class="academic-inst">The Madras Seva Sada Hr. Sec. School<br>Tambaram, Chennai</div>
+                </div>
+                <div class="academic-item">
+                    <div class="academic-degree">Secondary (SSLC)</div>
+                    <div class="academic-inst">Shriram Matriculation School<br>Thiruneermalai, Chennai</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 2 — ACHIEVEMENTS -->
+
+    <section class="achievements" id="achievements">
+        <div class="reveal">
+            <div class="section-tag">Recognition</div>
+            <h2 class="section-title">Achievements &amp; <em>Awards</em></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="ach-grid">
+
+            <!-- Featured: Book -->
+            <div class="ach-card featured reveal">
+                <img class="ach-book-img" src="./images/certificates/story-book.jpg"
+                    alt="Certificate of Publication — Hefty Human Hearts" />
+                <div class="ach-book-body">
+                    <div class="ach-book-label">Certificate of Publication</div>
+                    <div class="ach-book-title">"Hefty Human Hearts"</div>
+                    <div class="ach-book-desc">Co-Author of the book compiled by Ravleen Bajaj, published by Verses
+                        Kindler Publication with ISBN 978-93-5452-766-1. Recognised for contributing original writing to
+                        this literary anthology.</div>
+                </div>
+            </div>
+
+            <!-- Award 1 -->
+            <div class="ach-card reveal" style="transition-delay:0.08s">
+                <div class="ach-icon">★</div>
+                <div class="ach-title">Excentric Performer Award</div>
+                <div class="ach-org">Rotaract Club DCE · 2020</div>
+            </div>
+
+            <!-- Award 2 -->
+            <div class="ach-card reveal" style="transition-delay:0.14s">
+                <div class="ach-icon">✦</div>
+                <div class="ach-title">Unmatched Dedication Award</div>
+                <div class="ach-org">Rotaract Club DCE · 2021</div>
+            </div>
+
+            <!-- Award 3 -->
+            <div class="ach-card reveal" style="transition-delay:0.20s" style="grid-column: span 2;">
+                <div class="ach-icon">◈</div>
+                <div class="ach-title">The ACE Employee Award</div>
+                <div class="ach-org">Freshapps Technologies Pvt. Ltd. — Outstanding Contributions to Project Innovation
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="certificates" id="certificates">
+        <div class="reveal">
+            <div class="section-tag">see this</div>
+            <h2 class="section-title">Courses &amp; <em>Certifications</em></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="cert-grid">
+
+            <a href="./images/certificates/reshma-nsic.jpg" target="_blank"
+                style="text-decoration:none; color:inherit;">
+                <div class="cert-card reveal" style="transition-delay:0.05s">
+                    <div class="cert-icon">⌨</div>
+                    <div class="cert-name">Python Programming</div>
+                    <div class="cert-org">NSIC -
+                        Technical Services Centre</div>
+                    <div class="cert-date">April 2021</div>
+                </div>
+            </a>
+
+
+            <a href="./images/certificates/apponix-reshma.jpg" target="_blank"
+                style="text-decoration:none; color:inherit;">
+                <div class="cert-card reveal" style="transition-delay:0.1s">
+                    <div class="cert-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="cert-name">Web Development</div>
+                    <div class="cert-org">Apponix Technology</div>
+                    <div class="cert-date">May 2021</div>
+                </div>
+            </a>
+
+            <a href="./images/certificates/magik-trend.jpg" target="_blank"
+                style="text-decoration:none; color:inherit;">
+                <div class="cert-card reveal" style="transition-delay:0.15s">
+                    <div class="cert-icon">✎</div>
+                    <div class="cert-name">Content Writer</div>
+                    <div class="cert-org">Magik Trend</div>
+                    <div class="cert-date">April 2024</div>
+                </div>
+            </a>
+
+
+            <!-- Internships -->
+            <div class="reveal mt-4" style="transition-delay:0.2s">
+                <h2 class="section-title">Internships</h2>
+                <div class="divider"></div>
+                <a href="./images/certificates/lead-reshma.jpg" target="_blank"
+                    style="text-decoration:none; color:inherit;">
+                    <div class="cert-card reveal" style="transition-delay:0.05s">
+                        <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
+                        <div class="cert-name">Web Development</div>
+                        <div class="cert-org">LEAD Integrated Buisness Services Pvt Ltd </div>
+                        <div class="cert-date">August 2021 </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 4 — SOFT SKILLS -->
+
+    <section class="softskills" id="softskills">
+        <div class="reveal">
+            <div class="section-tag">Interpersonal</div>
+            <h2 class="section-title">Soft <em>Skills</em></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="skills-wrap reveal" style="transition-delay:0.1s">
+            <div class="skill-pill">Problem Solving</div>
+            <div class="skill-pill">Analysis</div>
+            <div class="skill-pill">Communication</div>
+            <div class="skill-pill">Adaptability</div>
+            <div class="skill-pill">Flexibility</div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — CONTACT -->
+    <section class="contact" id="contact">
+        <div class="reveal">
+            <div class="section-tag">Get In Touch</div>
+            <h2 class="section-title">Let's build<br>something <em>great</em></h2>
+            <div class="divider"></div>
+            <div class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter Your Email" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Enter Subject" />
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Enter Your Message"></textarea>
+                </div>
+                <button class="btn-submit">Send Message</button>
+            </div>
+        </div>
+        <div class="contact-info reveal" style="transition-delay:0.15s">
+            <p class="contact-tagline">
+                Open to <em>new projects</em> and creative collaborations.
+            </p>
+            <p style="font-size:0.88rem; color:var(--muted); line-height:1.8;">
+                Whether you have a defined brief or just a rough idea, I'd love to hear from you. I typically respond
+                within 24
+                hours.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:reshmaelangovan1411@gmail.com" class=" contact-link">
+                    <div class="contact-link-icon">✉</div>
+                    reshmaelangovan1411@gmail.com
+                </a>
+                <a href="tel:+917358653084" class="contact-link">
+                    <div class="contact-link-icon">☎</div>
+                    +91 7358653084
+                </a>
+                <a href="https://www.linkedin.com/in/reshmaelangovanfrontenddevelopment/" class="contact-link"
+                    target="_blank">
+                    <div class="contact-link-icon">in</div>
+                    linkedin.com/in/reshmaelangovan
+                </a>
+                <a href="#chennai" class="contact-link">
+                    <div class="contact-link-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    Chennai, India
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Reshma E <span>.</span></div>
+        <p>© 2025 Reshma E. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="mailto:reshmaelangovan1411@gmail.com" target="_blank">Mail</a>
+            <a href="https://www.linkedin.com/in/reshmaelangovanfrontenddevelopment/" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>
