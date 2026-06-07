@@ -33,7 +33,23 @@
       <li><a href="#services">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- Mobile menu drawer -->
+  <div class="nav-mobile" id="navMobile">
+    <ul>
+      <li><a href="#about" class="nav-mobile-link">About</a></li>
+      <li><a href="#experience" class="nav-mobile-link">Experience</a></li>
+      <li><a href="#work" class="nav-mobile-link">Projects</a></li>
+      <li><a href="#services" class="nav-mobile-link">Skills</a></li>
+      <li><a href="#contact" class="nav-mobile-link">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -366,6 +382,26 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
   </script>
 
 </body>

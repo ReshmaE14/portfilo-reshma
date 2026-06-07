@@ -4,13 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reshma Elangovan - Personal Details</title>
+    <title>Personal Information - Reshma Elangovan</title>
+    <meta name="description" content="Front-End Developer with 3+ years of experience in React.js and Nuxt.js, passionate about building modern,
+        responsive, and user-friendly web applications.">
+    <meta property="og:title" content="Reshma Elangovan - Front-End Developer Portfolio">
+    <meta property="og:description" content="Front-End Developer with 3+ years of experience in React.js and Nuxt.js, passionate about building modern,
+        responsive, and user-friendly web applications.">
+    <meta property="og:image" content="https://reshmaelangovan-portfilo.vercel.app/assets/preview.jpg">
+    <meta property="og:url" content="https://reshmaelangovan-portfilo.vercel.app/">
+    <meta property="og:type" content="website">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <!-- <link rel="icon" type="image/png" href="./images/resume_photo/reshma_favicon.png" /> -->
     <style>
+        /* ── VARIABLES ── */
         :root {
             --cream: #f5f0e8;
             --ink: #1a1714;
@@ -21,6 +31,7 @@
             --white: #fdfbf8;
         }
 
+        /* ── RESET ── */
         *,
         *::before,
         *::after {
@@ -31,6 +42,15 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
         /* ── NAV ── */
@@ -61,12 +81,6 @@
             color: var(--accent);
         }
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -88,16 +102,7 @@
             color: var(--ink);
         }
 
-
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--ink);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
+        /* ── SECTION COMMONS ── */
         section {
             padding: 7rem 5vw;
         }
@@ -113,7 +118,7 @@
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-size: clamp(2rem, 4vw, 3.4rem);
             font-weight: 300;
             line-height: 1.15;
             margin-bottom: 1rem;
@@ -241,7 +246,6 @@
         .ach-card {
             border: 1px solid rgba(255, 255, 255, 0.07);
             padding: 2rem;
-            position: relative;
             transition: background 0.3s;
         }
 
@@ -271,7 +275,7 @@
             font-weight: 500;
         }
 
-        /* Book achievement - spans full width */
+        /* Featured book card */
         .ach-card.featured {
             grid-column: span 2;
             display: grid;
@@ -289,7 +293,6 @@
             border: 1px solid rgba(181, 137, 90, 0.2);
             flex-shrink: 0;
         }
-
 
         .ach-book-label {
             font-size: 0.62rem;
@@ -313,35 +316,6 @@
             font-size: 0.82rem;
             color: rgba(245, 240, 232, 0.45);
             line-height: 1.8;
-        }
-
-        /* ── SOFT SKILLS ── */
-        .softskills {
-            background: var(--cream);
-        }
-
-        .skills-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-
-        .skill-pill {
-            border: 1px solid var(--border);
-            padding: 0.55rem 1.3rem;
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
-            color: var(--muted);
-            font-weight: 500;
-            transition: border-color 0.3s, color 0.3s, background 0.3s;
-            cursor: default;
-        }
-
-        .skill-pill:hover {
-            border-color: var(--accent);
-            color: var(--ink);
-            background: var(--accent-light);
         }
 
         /* ── CERTIFICATES ── */
@@ -440,6 +414,53 @@
             background: var(--accent);
         }
 
+        /* Internships sub-section inside cert-grid */
+        .internship-block {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        .internship-block .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            margin-bottom: 0;
+        }
+
+        .internship-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 0;
+        }
+
+        /* ── SOFT SKILLS ── */
+        .softskills {
+            background: var(--cream);
+        }
+
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skill-pill {
+            border: 1px solid var(--border);
+            padding: 0.55rem 1.3rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            font-weight: 500;
+            transition: border-color 0.3s, color 0.3s, background 0.3s;
+            cursor: default;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent);
+            color: var(--ink);
+            background: var(--accent-light);
+        }
+
         /* ── CONTACT ── */
         .contact {
             background: var(--white);
@@ -481,6 +502,7 @@
             outline: none;
             transition: border-color 0.3s;
             resize: none;
+            width: 100%;
         }
 
         .form-group input:focus,
@@ -552,6 +574,7 @@
             color: var(--muted);
             font-size: 0.85rem;
             transition: color 0.3s;
+            word-break: break-all;
         }
 
         .contact-link:hover {
@@ -584,6 +607,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .footer-logo {
@@ -621,10 +646,74 @@
             color: var(--accent);
         }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        /* ── RESPONSIVE: TABLET (max 1024px) ── */
+        @media (max-width: 1024px) {
+            .cert-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .internship-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact {
+                gap: 3rem;
+            }
+        }
+
+        /* ── RESPONSIVE: MOBILE (max 768px) ── */
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 5vw;
+            }
+
             .nav-links {
                 display: none;
+            }
+
+            /* Academic */
+            .academic-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* Achievements */
+            .ach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ach-card.featured {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .ach-book-img {
+                width: 100%;
+                height: 180px;
+            }
+
+            /* Certificates */
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .internship-cards {
+                grid-template-columns: 1fr;
+            }
+
+            /* Contact */
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
             .contact-info {
@@ -634,20 +723,42 @@
                 padding-top: 2rem;
             }
 
+            /* Footer */
             footer {
                 flex-direction: column;
-                gap: 1rem;
                 text-align: center;
+            }
+        }
+
+        /* ── RESPONSIVE: SMALL MOBILE (max 480px) ── */
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.9rem;
+            }
+
+            .contact-tagline {
+                font-size: 1.5rem;
+            }
+
+            .btn-submit {
+                width: 100%;
+                text-align: center;
+            }
+
+            .ach-book-title {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 
 <body>
+
     <!-- NAV -->
     <nav>
         <a class="nav-logo" href="index.html">Reshma E<span>.</span></a>
         <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
             <li><a href="#academic">Academic</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#certificates">Certificates</a></li>
@@ -656,16 +767,14 @@
         </ul>
     </nav>
 
-    <!-- SECTION 1 — ACADEMIC DETAILS -->
-    <section class="academic" id="academic">
+    <!-- ACADEMIC -->
+    <section class="academic mt-2" id="academic">
         <div class="reveal">
             <div class="section-tag">Education</div>
             <h2 class="section-title">Academic <em>Background</em></h2>
             <div class="divider"></div>
         </div>
         <div class="academic-grid">
-
-            <!-- LEFT: Degree -->
             <div class="reveal">
                 <div class="academic-col-title">Degree</div>
                 <div class="academic-item">
@@ -676,8 +785,6 @@
                     <div class="cgpa-badge">CGPA — 8.77</div>
                 </div>
             </div>
-
-            <!-- RIGHT: School -->
             <div class="reveal" style="transition-delay:0.1s">
                 <div class="academic-col-title">Schooling</div>
                 <div class="academic-item">
@@ -689,13 +796,10 @@
                     <div class="academic-inst">Shriram Matriculation School<br>Thiruneermalai, Chennai</div>
                 </div>
             </div>
-
         </div>
     </section>
 
-
-    <!-- SECTION 2 — ACHIEVEMENTS -->
-
+    <!-- ACHIEVEMENTS -->
     <section class="achievements" id="achievements">
         <div class="reveal">
             <div class="section-tag">Recognition</div>
@@ -704,7 +808,6 @@
         </div>
         <div class="ach-grid">
 
-            <!-- Featured: Book -->
             <div class="ach-card featured reveal">
                 <img class="ach-book-img" src="./images/certificates/story-book.jpg"
                     alt="Certificate of Publication — Hefty Human Hearts" />
@@ -717,22 +820,22 @@
                 </div>
             </div>
 
-            <!-- Award 1 -->
             <div class="ach-card reveal" style="transition-delay:0.08s">
-                <div class="ach-icon">★</div>
+                <!-- <div class="ach-icon">★</div> -->
+                <img class="ach-book-img" src="./images/certificates/award-2021.jpg"
+                    alt="Certificate of Publication — Hefty Human Hearts" />
                 <div class="ach-title">Excentric Performer Award</div>
-                <div class="ach-org">Rotaract Club DCE · 2020</div>
-            </div>
-
-            <!-- Award 2 -->
-            <div class="ach-card reveal" style="transition-delay:0.14s">
-                <div class="ach-icon">✦</div>
-                <div class="ach-title">Unmatched Dedication Award</div>
                 <div class="ach-org">Rotaract Club DCE · 2021</div>
             </div>
 
-            <!-- Award 3 -->
-            <div class="ach-card reveal" style="transition-delay:0.20s" style="grid-column: span 2;">
+            <div class="ach-card reveal" style="transition-delay:0.14s">
+                <img class="ach-book-img" src="./images/certificates/award-2022.jpg"
+                    alt="Certificate of Publication — Hefty Human Hearts" />
+                <div class="ach-title">Unmatched Dedication Award</div>
+                <div class="ach-org">Rotaract Club DCE · 2022</div>
+            </div>
+
+            <div class="ach-card reveal" style="transition-delay:0.20s">
                 <div class="ach-icon">◈</div>
                 <div class="ach-title">The ACE Employee Award</div>
                 <div class="ach-org">Freshapps Technologies Pvt. Ltd. — Outstanding Contributions to Project Innovation
@@ -745,7 +848,7 @@
     <!-- CERTIFICATES -->
     <section class="certificates" id="certificates">
         <div class="reveal">
-            <div class="section-tag">see this</div>
+            <div class="section-tag">Learning</div>
             <h2 class="section-title">Courses &amp; <em>Certifications</em></h2>
             <div class="divider"></div>
         </div>
@@ -756,12 +859,10 @@
                 <div class="cert-card reveal" style="transition-delay:0.05s">
                     <div class="cert-icon">⌨</div>
                     <div class="cert-name">Python Programming</div>
-                    <div class="cert-org">NSIC -
-                        Technical Services Centre</div>
+                    <div class="cert-org">NSIC - Technical Services Centre</div>
                     <div class="cert-date">April 2021</div>
                 </div>
             </a>
-
 
             <a href="./images/certificates/apponix-reshma.jpg" target="_blank"
                 style="text-decoration:none; color:inherit;">
@@ -783,28 +884,27 @@
                 </div>
             </a>
 
-
             <!-- Internships -->
-            <div class="reveal mt-4" style="transition-delay:0.2s">
+            <div class="internship-block reveal" style="transition-delay:0.2s">
                 <h2 class="section-title">Internships</h2>
                 <div class="divider"></div>
-                <a href="./images/certificates/lead-reshma.jpg" target="_blank"
-                    style="text-decoration:none; color:inherit;">
-                    <div class="cert-card reveal" style="transition-delay:0.05s">
-                        <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
-                        <div class="cert-name">Web Development</div>
-                        <div class="cert-org">LEAD Integrated Buisness Services Pvt Ltd </div>
-                        <div class="cert-date">August 2021 </div>
-                    </div>
-                </a>
+                <div class="internship-cards">
+                    <a href="./images/certificates/lead-reshma.jpg" target="_blank"
+                        style="text-decoration:none; color:inherit;">
+                        <div class="cert-card reveal" style="transition-delay:0.05s">
+                            <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
+                            <div class="cert-name">Web Development</div>
+                            <div class="cert-org">LEAD Integrated Business Services Pvt Ltd</div>
+                            <div class="cert-date">August 2021</div>
+                        </div>
+                    </a>
+                </div>
             </div>
 
         </div>
     </section>
 
-
-    <!-- SECTION 4 — SOFT SKILLS -->
-
+    <!-- SOFT SKILLS -->
     <section class="softskills" id="softskills">
         <div class="reveal">
             <div class="section-tag">Interpersonal</div>
@@ -820,7 +920,7 @@
         </div>
     </section>
 
-    <!-- SECTION 5 — CONTACT -->
+    <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="reveal">
             <div class="section-tag">Get In Touch</div>
@@ -849,16 +949,13 @@
             </div>
         </div>
         <div class="contact-info reveal" style="transition-delay:0.15s">
-            <p class="contact-tagline">
-                Open to <em>new projects</em> and creative collaborations.
-            </p>
+            <p class="contact-tagline">Open to <em>new projects</em> and creative collaborations.</p>
             <p style="font-size:0.88rem; color:var(--muted); line-height:1.8;">
                 Whether you have a defined brief or just a rough idea, I'd love to hear from you. I typically respond
-                within 24
-                hours.
+                within 24 hours.
             </p>
             <div class="contact-links">
-                <a href="mailto:reshmaelangovan1411@gmail.com" class=" contact-link">
+                <a href="mailto:reshmaelangovan1411@gmail.com" class="contact-link">
                     <div class="contact-link-icon">✉</div>
                     reshmaelangovan1411@gmail.com
                 </a>
@@ -892,10 +989,13 @@
     <script>
         const reveals = document.querySelectorAll('.reveal');
         const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+            });
         }, { threshold: 0.1 });
         reveals.forEach(el => obs.observe(el));
     </script>
+
 </body>
 
 </html>
